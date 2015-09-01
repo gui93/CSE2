@@ -21,6 +21,7 @@ public class WelcomeClass{
         System.out.println(" <-g--u--j--2--1--5-> ");
         System.out.println("  \\ /\\ /\\ /\\ /\\ /\\ /");
         System.out.println("   v  v  v  v  v  v ");
+        //Printing a tweet-length autobiographic statement
         System.out.println("Today I had ice-cream with two of my international friends. One is from England and the other one, from Germany.");
 
 
