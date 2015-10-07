@@ -32,7 +32,9 @@ public class CheckDigit{ //Declaration of the CheckDigit class.
 		//This loop statement will be useful to go back to get the user input in case
 		//of an invalid barcode.
 		while(true){
-		
+		    
+		    enable=true;
+		    
 			//Storing the input in the 's' variable.
 			s=input.nextLine();
 			
@@ -114,12 +116,12 @@ public class CheckDigit{ //Declaration of the CheckDigit class.
 						}
 						else{
 							if(w_sum%11==10){
-								System.out.println("Invalid input. The last digit should be X.\n Try again: ");
+								System.out.println("Invalid input. The last digit should be X.\nTry again: ");
 							}
 							else{
 								System.out.print("Invalid input." +
 												"The last digit should be: "+
-											 	w_sum%11+ "\n Try again: ");
+											 	w_sum%11+ "\nTry again: ");
 							}
 						}
 					}
