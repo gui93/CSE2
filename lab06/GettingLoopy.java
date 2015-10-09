@@ -95,7 +95,7 @@ public class GettingLoopy{
             counter++;
             if(counter==20){
                 System.out.println("");
-                counter=0;
+                counter=1;
             }
             
             j--;
