@@ -1,3 +1,8 @@
+//Student: Guilherme Junqueira Perticarari
+//CSE002 - Homework 8
+//Program 2 - StringAnalysis: Analyse the presence of any character in a string entered 
+//                              by the user that is not a letter.
+
 //Scanner will be used to get the barcode input from the user.
 import  java.util.Scanner;
 
