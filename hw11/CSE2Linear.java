@@ -23,6 +23,51 @@ import java.util.Random;
 //Declaring the class CSE2Linear
 public class CSE2Linear{ 
 	
+	//Method for the BinarySearch.
+	public static void BinarySearch(int[] array,int search){
+		//'n' will store the number of iterations.
+	 	int n=1;
+	 	
+	 	//'lower' will store the lower bound of the interval where 'search' might be.
+	 	int lower=0;
+	 	
+	 	//'upper' will store the upper bound of the interval where 'search' might be.
+	 	int upper=array.length-1;
+	 	
+	 	//'i' will store the middle point between 'lower' and 'upper'.
+	 	int i;
+	 	
+	 	//If the grade is found, the last line (The grade was not found!) will not be displayed.
+	 	//If the grade is not found, the last line will be displayed.
+	 	boolean e=true;
+	 	
+	 	//After every iteration that search is not found, lower and upper will 
+	 	//	will get closer together by unitary steps.
+	 	//If the number is not found, 'upper' will eventually get smaller than 'lower'.
+	 	//This while-loop will go on until one of these things happen:
+	 	//	1) 'i' holds the position of the number searched in the array.
+	 	//	2)	upper gets smaller than lower.
+   		while(upper>=lower){
+  			i=(int)(0.5*(lower+upper));
+  			if(array[i]<search){
+   	   			lower=i+1;
+    	    }
+  			if(array[i]==search) {
+  	    		System.out.println("The grade was found after " + n + " iterations!");
+  	    		e=false;
+  	    		break;
+  	    	}
+  	    	if(array[i]>search){
+   	   			upper=i-1;
+    	    }
+		//The number of iterations is increased unitarily.
+    	n++;
+  	 	}
+  	 	if(e){
+   			System.out.println("The grade was not found!");
+   		}
+   }
+	
 	//Method that will be used to get inputs from user and fill up the grade array.
 	public static void GetArray(int[] array, Scanner input){
 	
@@ -156,11 +201,11 @@ public class CSE2Linear{
 		
 		//Prompting the user to enter a grade to be searched in the array.
 		System.out.println();
-		System.out.print("Which grade do you wanna search?: ");
+		System.out.print("BINARY SEARCH:\nWhich grade do you wanna search?: ");
 		search=input.nextInt();
 		
-		//Method that will search the value entered by the user in the array.
-		LinearSearch(array,search);
+		//Method that will search the value entered by the user in the array with Binary Search.
+		BinarySearch(array,search);
 		
 		//The original array will be scrambled.
 		Scramble(array,r);
@@ -173,7 +218,7 @@ public class CSE2Linear{
 		
 		//The user will be prompt to enter another grade.
 		System.out.println();
-		System.out.print("Which grade do you wanna search?: ");
+		System.out.print("LINEAR SEARCH:\nWhich grade do you wanna search?: ");
 		search=input.nextInt();
 		
 		//The value entered will be searched in the new array.
