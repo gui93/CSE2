@@ -5,23 +5,28 @@ import  java.util.Scanner;
 public class Search{
     
     public static void binSearch(int[] s, int a){
-        int n, upper=5000, low=0;
-        while(a>s[low] && a<s[upper]){
+        int n=0, upper=5000, low=0;
+        boolean e=true;
+        while(upper>=low){
             n=(int)(0.5*(upper+low));
-            System.out.print(n);
             if(s[n]==a){
+                
                 System.out.print("The number was found! It's in position " + n);
+                break;
             }
-            else if(a>s[n]){
-                low=n;
+            if(a>s[n]){
+                low=n+1;
             }
-            else if(a<s[n]){
-                upper=n;
+            if(a<s[n]){
+                upper=n-1;
             }
-            else if(s[low]==s[upper-1]){
-                System.out.println("The number was not found! The lower bound is " + low + " and the upper bound is " + upper);
+            if(upper-1==low+1){
+                break;
             }
-            
+        }
+        if(e){
+            System.out.println("The number was not found");
+            System.out.println("The number above the key: " + s[upper] + ". The number below the key: " + s[low]);
         }
     }
     
@@ -56,8 +61,8 @@ public class Search{
             array2[i]=rand;
         }
         System.out.println("For array2:");
-        System.out.println("The maximum is: " + array2[1] + " the minimum is: " + array2[0]);
-        System.out.println("Type an integer greater than 0.");
+        System.out.println("The maximum is: " + array2[5000-1] + " the minimum is: " + array2[0]);
+        System.out.print("Type an integer greater than 0: ");
         int input=myScanner.nextInt();
         if(input>0){
             binSearch(array2,input);
