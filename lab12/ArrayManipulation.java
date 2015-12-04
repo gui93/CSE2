@@ -54,7 +54,7 @@ public class ArrayManipulation{
         }
         return max;
     }
-    public static int[] mostEven(int[][] array){
+    public static void mostEven(int[][] array){
         int[] n=new int[array.length];
         for(int i=0;i<n.length;i++){
             n[i]=0;
@@ -67,26 +67,30 @@ public class ArrayManipulation{
             }
         }
         int max=n[0];
+        int position=0;
         for(int i=0;i<n.length;i++){
             if(max<n[i]){
                 max=n[i];
             }
         }
-        System.out.print("system: " + max);
-        return array[max];
+        for(int i=0;i<n.length;i++){
+            if(max==n[i]){
+                position=i;   
+            }
+        }
+        System.out.print("Array with the highest number of even numbers: ");
+        for(int i=0;i<array[position].length;i++){
+            System.out.print(array[position][i]+" ");
+        }
+        System.out.println();
     }
     public static void main(String args[]){
         int[][] array;
         array=raggedArray();
         printArray(array);
-        System.out.println("The smalles number is: " + findSmallest(array));
+        System.out.println("The smallest number is: " + findSmallest(array));
         System.out.println("The largest number is: " + findLargest(array));
-        int[] most=mostEven(array);
-        System.out.print("The array with the most even numbers is: ");
-        for(int i=0;i<most.length;i++){
-            System.out.print(most[i]);
-        }
-    
+        mostEven(array);
     }
     
 }
